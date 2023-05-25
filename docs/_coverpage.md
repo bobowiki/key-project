@@ -1,4 +1,4 @@
-![logo](_media/shiba-inu.png)
+![logo](_media/logo.svg)
 
 # ekeys-project <small>1.0</small>
 
