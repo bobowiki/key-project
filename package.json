@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "docs": "docsify serve packages/docs",
+    "docs": "docsify serve docs",
     "install:key-react-app": "cd packages/key-create-react-app && yarn",
     "install:key-vue-app": "cd packages/key-vue-app && yarn",
     "install:key-styled-component-app": "cd packages/key-styled-component && yarn",

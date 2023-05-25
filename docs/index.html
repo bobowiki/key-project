@@ -9,25 +9,97 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
     />
+    <style>
+      .theme-button {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        z-index: 99999;
+        display: block;
+        border: none;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+        min-height: 40px;
+        inset-inline-end: 24px;
+        inset-block-end: 48px;
+        border-radius: 50%;
+        background-color: #fff;
+        cursor: pointer;
+        text-align: center;
+        line-height: 40px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
     <!-- <link
+      id="theme"
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     /> -->
-    <link
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css"
-    />
   </head>
   <body>
-    <nav>
-      <a href="#/">EN</a>
-      <a href="#/zh-cn/">简体中文</a>
-    </nav>
     <div id="app">加载中</div>
+    <div class="theme-button" onclick="changeTheme()">🌞</div>
+    <script>
+      function removeCss() {
+        const cssItem = document.getElementById("theme");
+        const head = document.getElementsByTagName("head")[0];
+        cssItem && head.removeChild(cssItem);
+      }
+
+      function addCss(link) {
+        const head = document.getElementsByTagName("head")[0];
+        const cssItemDark = document.createElement("link");
+        cssItemDark.id = "theme";
+        cssItemDark.rel = "stylesheet";
+        cssItemDark.href = link;
+        head.appendChild(cssItemDark);
+      }
+
+      function changeTheme() {
+        const coverBgc = document.querySelector(".cover");
+        console.log("coverBgc:::", coverBgc);
+        if (localStorage.getItem("theme")) {
+          if (
+            localStorage.getItem("theme") === "nomal" ||
+            !localStorage.getItem("theme")
+          ) {
+            const button = document.querySelector(".theme-button");
+            button.innerText = "🌛";
+            button.style.backgroundColor = "black";
+            removeCss();
+            localStorage.setItem("theme", "dark");
+            addCss("//cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css");
+            if (coverBgc) {
+              coverBgc.style.background = "black";
+            }
+          } else {
+            removeCss();
+            localStorage.setItem("theme", "nomal");
+            addCss("//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css");
+            const button = document.querySelector(".theme-button");
+            button.innerText = "🌞";
+            button.style.backgroundColor = "#fff";
+            if (coverBgc) {
+              coverBgc.style.background =
+                "linear-gradient(to left bottom, hsl(112, 100%, 85%) 0%,hsl(82, 100%, 85%) 100%)";
+            }
+          }
+        } else {
+          removeCss();
+          localStorage.setItem("theme", "dark");
+          addCss("//cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css");
+        }
+      }
+    </script>
     <script>
       window.$docsify = {
-        name: "",
-        repo: "",
+        name: "ekey`s project",
+        repo: "https://github.com/bobowiki/key-project.git",
         loadSidebar: true,
         loadNavbar: true,
         coverpage: true,
