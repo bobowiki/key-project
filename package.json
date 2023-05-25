@@ -1,0 +1,20 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "docs": "docsify serve packages/docs",
+    "install:key-react-app": "cd packages/key-create-react-app && yarn",
+    "install:key-vue-app": "cd packages/key-vue-app && yarn",
+    "install:key-styled-component-app": "cd packages/key-styled-component && yarn",
+    "start:react-app": "cd packages/key-create-react-app && yarn start",
+    "start:vue-app": "cd packages/key-vue-app && yarn serve",
+    "start:next-app": "cd packages/next-app && yarn dev"
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.4",
+    "lerna": "^6.6.2"
+  }
+}

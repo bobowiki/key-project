@@ -1,0 +1,25 @@
+{
+  "name": "key-styled-component",
+  "version": "0.0.0",
+  "description": "for styled-component learning",
+  "keywords": [
+    "css"
+  ],
+  "author": "yikai <yikai@didiglobal.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/key-styled-component.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.intra.xiaojukeji.com/"
+  },
+  "scripts": {
+    "test": "node ./__tests__/key-styled-component.test.js"
+  }
+}
