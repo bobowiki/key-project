@@ -9,4 +9,4 @@
 - 建身
 
 [GitHub](https://github.com/bobowiki/key-project.git)
-[Get Started](#docsify)
+[Get Started](README.md)

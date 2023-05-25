@@ -1,3 +1,3 @@
-- [Home](/)
+- [前端](/)
 
-* [Guide](guide.md "the greate guide in the world")
+* [生活](guide.md "the greate guide in the world")

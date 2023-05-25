@@ -27,6 +27,7 @@
         border-radius: 50%;
         background-color: #fff;
         cursor: pointer;
+        user-select: none;
         text-align: center;
         line-height: 40px;
       }
@@ -35,11 +36,6 @@
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
     />
-    <!-- <link
-      id="theme"
-      rel="stylesheet"
-      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
-    /> -->
   </head>
   <body>
     <div id="app">加载中</div>
@@ -62,12 +58,8 @@
 
       function changeTheme() {
         const coverBgc = document.querySelector(".cover");
-        console.log("coverBgc:::", coverBgc);
         if (localStorage.getItem("theme")) {
-          if (
-            localStorage.getItem("theme") === "nomal" ||
-            !localStorage.getItem("theme")
-          ) {
+          if (localStorage.getItem("theme") === "nomal") {
             const button = document.querySelector(".theme-button");
             button.innerText = "🌛";
             button.style.backgroundColor = "black";
@@ -93,6 +85,9 @@
           removeCss();
           localStorage.setItem("theme", "dark");
           addCss("//cdn.jsdelivr.net/npm/docsify/lib/themes/dark.css");
+          if (coverBgc) {
+            coverBgc.style.background = "black";
+          }
         }
       }
     </script>
